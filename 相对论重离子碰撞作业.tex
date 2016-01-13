@@ -1,0 +1,82 @@
+\documentclass{ctexart}
+\usepackage{amsmath}
+\usepackage{bm}
+\usepackage{geometry}
+
+\geometry{a4paper,left=3cm,right=3cm}
+
+\title{相对论重离子碰撞作业}
+\author{艾鑫}
+
+\newcounter{mycnt}
+\setcounter{mycnt}{0}
+\newenvironment{problem}{\noindent \stepcounter{mycnt}\themycnt.}{
+
+}
+\newenvironment{answer}{\textbf{解}:}{
+\vspace{0.5cm}
+}
+
+\newcommand\diff{\,\mathrm{d}}
+
+\begin{document}
+\maketitle
+
+\begin{problem}
+  证明$x_+, x_-$是洛伦兹不变量, 证明快度是洛伦兹变换可加量.
+\end{problem}
+
+\begin{answer}
+  考虑参考系$F$和$F'$, $F'$系相对于$F$系以速度$\beta$沿着$x$轴匀速运动. 在$F$系中的四矢量$c = (c_0, \bm{c}_T, c_z)$, 在$F'$系中变为$c' = (c_0', \bm{c}_T', c_z')$. 它们两者由洛伦兹变换联系起来:
+  \begin{gather}\label{c0}
+    c_0' = \gamma (c_0 - \beta c_z), \\ \label{c1}
+    c_z' = \gamma (c_z - \beta c_0), \\
+    \bm{c}_T' = \bm{c}_T.
+  \end{gather}
+其中
+\begin{equation}
+  \gamma = \frac{1}{\sqrt{1-\beta^2}}.
+\end{equation}
+
+将\eqref{c0}和\eqref{c1}相加得到:
+\begin{equation}
+  c_0' + c_z' = \gamma (1 - \beta) (c_0 + c_z). \label{c0cz}
+\end{equation}
+因此$c_0' + c_z'$与$c_0 + c_z$直相差一个因子$\gamma (1 - \beta)$. 类似的, 另外一个粒子$b$在$F$系的前向光锥动量$b_0 + b_z$与在$F'$系中前向光锥动量$b_0' + b_z'$的关系为:
+\begin{equation}
+  b_0' + b_z' = \gamma (1 - \beta) (b_0 + b_z). \label{b0bz}
+\end{equation}
+由$x_+$的定义有
+\begin{gather}
+  x_+ = \frac{c_0 + c_z}{b_0 + b_z} \\
+  x_+' = \frac{c_0' + c_z'}{b_0' + b_z'}
+\end{gather}
+由\eqref{c0cz}和\eqref{b0bz}很容易得到:
+\begin{equation}
+  x_+ = x_+'
+\end{equation}
+因此, 光锥变量$x_+$是洛伦兹不变量. 同理可证, $x_-$也是洛伦兹不变量.
+
+
+\end{answer}
+
+\begin{problem}
+  在无限大动量参照系中, 讨论相对论硬散射过程, $A + B \rightarrow C + X$. 证明:
+  \begin{enumerate}
+  \item[(1)] $b^2 = [x_b(1-x_b)B^2 - x_b \beta^2 - b_T^2]/(1 - x_b)$
+  \item[(2)] $a^2 = [x_a(1-x_a)A^2 - x_a \alpha^2 - a_T^2]/(1 - x_a)$
+  \end{enumerate}
+\end{problem}
+
+\begin{problem}
+  在QED理论中, 有一个费米场$\psi$和电磁场$A^\mu$, $A^\mu$又称为规范场, 试证明无质量费米子的电磁相互作用, 等同于一个质量$m = e/\sqrt{\pi}$的自由玻色场$\phi$, $e$为电磁耦合常数.
+\end{problem}
+
+\begin{problem}
+  利用$1+1$维相对论理想流体力学方程, 导出QGP物质熵随时间的变化关系, 以及发生QGP到强子物质相变, 发生相变时间.
+\end{problem}
+
+\begin{problem}
+  试证明考虑screening效应后, $c$与$\bar{c}$在QGP环境中, 对应的Yukawa势为$V(r) = \frac{q}{4\pi} \frac{e^{-r/\lambda_D}}{r}$.
+\end{problem}
+\end{document}
