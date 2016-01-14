@@ -1,5 +1,6 @@
 \documentclass{ctexart}
 \usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage{bm}
 \usepackage{geometry}
 
@@ -57,6 +58,28 @@
 \end{equation}
 因此, 光锥变量$x_+$是洛伦兹不变量. 同理可证, $x_-$也是洛伦兹不变量.
 
+下面证明快度是洛伦兹可加量. 首先在$F$系中的快度有:
+\begin{equation}
+  y = \frac{1}{2} \ln \left( \frac{p_0 + p_z}{p_0 - p_z}\right).
+\end{equation}
+在$F'$系中有:
+\begin{equation}
+  y' = \frac{1}{2} \ln \left( \frac{p_0' + p_z'}{p_0' - p_z'}\right).
+\end{equation}
+由洛伦兹变换有:
+\begin{gather}
+  p_0' = \gamma (p_0 - \beta p_z) \\
+  p_z' = \gamma (p_z - \beta p_0).
+\end{gather}
+因此
+\begin{equation}
+  \begin{split}
+    y' &= \frac{1}{2} \ln \left[ \frac{\gamma(1-\beta)(p_0 + p_z)}{\gamma(1+\beta)(p_0 - p_z)} \right] \\
+    &= y + \frac{1}{2} \ln \left( \frac{1-\beta}{1+\beta} \right) \\
+    &= y - \frac{1}{2} \ln \left( \frac{1+\beta}{1-\beta} \right)
+  \end{split}
+\end{equation}
+由上式可知, $y'$与$y$只相差一个因子$\frac{1}{2}\ln((1+\beta)/(1-\beta))$, 因此快度是洛伦兹不变量.
 
 \end{answer}
 
@@ -68,13 +91,149 @@
   \end{enumerate}
 \end{problem}
 
+\begin{answer}
+  考虑入射粒子$B$和靶核$A$, 在无限大动量参考系中$A$和$B$的动量可写为:
+  \begin{gather} \label{eqB}
+    B = (B_0, \bm{B}_T, B_z) = (P_1 + \frac{B^2+B_T^2}{4P_1}, \bm{B}_T, P_1 - \frac{B^2+B_T^2}{4P_1}) \\ \label{eqA}
+    A = (A_0, \bm{A}_T, A_z) = (P_2 + \frac{A^2+A_T^2}{4P_2}, \bm{A}_T, -P_2 + \frac{A^2+A_T^2}{4P_2}) \\
+  \end{gather}
+
+对于反应$A + B \rightarrow C + X$, 我们可以认为$C$是由$A$的部分子$a$和$B$的部分子$b$作用形成的$c$, 然后进一步反应形成的. 
+我们引入$b$相对于$B$的前向光锥动量比$x_b$:
+\begin{equation} \label{eqxb}
+  x_b = \frac{b_0 + b_z}{B_0 + B_z}, 
+\end{equation}
+同样, 我们定义$a$相对于$A$的后向光锥动量比$x_a$:
+\begin{equation} \label{eqxa}
+  x_a = \frac{a_0 - a_z}{A_0 - A_z}.
+\end{equation}
+利用公式\eqref{eqB}和\eqref{eqxb}, 我们可以写出$b$的动量:
+\begin{equation}
+  b = \left(  x_bP_1 + \frac{b^2+b_T^2}{4x_bP_1}, \bm{b}_T, x_bP_1 - \frac{b^2+b_T^2}{4x_bP_1} \right). 
+\end{equation}
+类似的, 我们可以写出$a$的动量:
+\begin{equation}
+  a = \left(  x_aP_2 + \frac{a^2+a_T^2}{4x_aP_2}, \bm{a}_T, -x_aP_2 + \frac{a^2+a_T^2}{4x_aP_2} \right). 
+\end{equation}
+
+因此动量$\beta = (B - b)$和$\alpha = (A - a)$可以写为:
+\begin{gather} \label{eqbeta}
+  \beta = \left(  (1-x_b)P_1 + \frac{\beta^2+\beta_T^2}{4(1-x_b)P_1}, -\bm{b}_T, (1-x_b)P_1 - \frac{\beta^2+\beta_T^2}{4(1-x_b)P_1} \right),  \\ \label{eqalpha}
+  \alpha = \left(  (1-x_a)P_2 + \frac{\alpha^2+\alpha_T^2}{4(1-x_a)P_2}, -\bm{a}_T, -(1-x_a)P_2 + \frac{\alpha^2+\alpha_T^2}{4(1-x_a)P_2} \right).  \\
+\end{gather}
+
+由于$b = B - \beta$, 我们可以得到:
+\begin{equation}
+  b^2 = B^2 - 2B\cdot \beta + \beta^2.
+\end{equation}
+利用公式\eqref{eqB}和\eqref{eqbeta}我们可以得到:
+\begin{equation}
+  \begin{split}
+    B\cdot\beta &= \left(P_1 + \frac{B^2}{4P_1})((1-x_b)P_1 + \frac{\beta^2+\beta_T^2}{4(1-x_b)P_1}\right) - \left(P_1 - \frac{B^2}{4P_1})((1-x_b)P_1 - \frac{\beta^2+\beta_T^2}{4(1-x_b)P_1}\right) \\
+    &= \left[(1-x_b)P_1^2 + \frac{\beta^2+\beta_T^2}{4(1-x_b)} + \frac{(1-x_b)B^2}{4} + \frac{B^2(\beta^2+\beta_T^2)}{16(1-x_b)P_1^2}\right] - \\
+    & \quad \left[(1-x_b)P_1^2 - \frac{\beta^2+\beta_T^2}{4(1-x_b)} - \frac{(1-x_b)B^2}{4} + \frac{B^2(\beta^2+\beta_T^2)}{16(1-x_b)P_1^2}\right] \\
+    &= \frac{\beta^2 + \beta_T^2}{2(1-x_b)} + \frac{(1-x_b)B^2}{2} \\
+    &= \frac{\beta^2 + \beta_T^2 + (1-x_b)^2B^2}{2(1-x_b)}.
+  \end{split}
+\end{equation}
+因此,
+\begin{equation}
+  \begin{split}
+    b^2 &= B^2 + \beta^2 - 2B\cdot \beta \\
+    &= B^2 + \beta^2 - \frac{\beta^2 + \beta_T^2 + (1-x_b)^2B^2}{1-x_b} \\
+    &= \frac{B^2(1-x_b) + \beta^2(1-x_b) - [\beta^2 + \beta_T^2 + (1-x_b)^2B^2]}{1-x_b} \\
+    &= \frac{x_b(1-x_b)B^2 - x_b \beta^2 -\beta_T^2}{1-x_b} \\
+    &= \frac{x_b(1-x_b)B^2 - x_b \beta^2 - b_T^2}{1-x_b}.
+  \end{split}
+\end{equation}
+同理可证, 对$a$有
+\begin{equation}
+  a^2 = \frac{x_a(1-x_a)A^2 - x_a \alpha^2 - a_T^2}{1-x_a}.
+\end{equation}
+\end{answer}
+
 \begin{problem}
   在QED理论中, 有一个费米场$\psi$和电磁场$A^\mu$, $A^\mu$又称为规范场, 试证明无质量费米子的电磁相互作用, 等同于一个质量$m = e/\sqrt{\pi}$的自由玻色场$\phi$, $e$为电磁耦合常数.
 \end{problem}
 
+\begin{answer}
+  我们从充满电子的狄拉克负能海出发, 如果在某个空间区间内有一个电荷密度或电流的扰动, 将会产生一个电磁规范场$A^\mu$, 它将影响费米子场算符, 结果费米子场的变化将使所有的电子处于各种运动和激发状态. 显然, 这种运动和激发会产生电荷密度$j^0$和电流$j^1$. 下面我们来求产生的电流$j^\mu$和扰动源---规范场$A^\mu$的依赖关系.
+
+首先,我们注意到这两个量在规范变换下是不一样的. 在量子点动力学中, 流$j^\mu$这样的物理量是规范不变量, 即它们在规范场从$A^\mu$到$\bar{A}^\mu$按如下规范变换时保持不变,
+\begin{equation}
+  \bar{A}^\mu(x) = A^\mu (x) - \partial^\mu \lambda(x),
+\end{equation}
+而费米子场算符$\psi(A)$的变换为,
+\begin{equation}
+  \psi(x,\bar{A}(x)) = e^{ie\lambda(x)} \psi(x, A(x)),
+\end{equation}
+其中$\lambda(x)$是一个$x$的任意函数. 对任意函数$\lambda(x)$的不同选择代表不同的规范, 而物理量必须与规范的选择无关.
+
+尽管产生的流$j^\mu(x)$依赖于它的规范场源$A^\mu(x)$, 但是$j^\mu(x)$和$A^\mu(x)$在规范变换下的行为又是不同的, 流是规范不变的, 而规范场却依赖于规范的选择. 当考虑了流的规范不变性后, 产生的流$j^\mu(x)$与局域电磁扰动$A^\mu(x)$的关系为
+\begin{equation}\label{jmu}
+  j^\mu(x) = - \frac{e^2}{\pi} [A^\mu(x) - \partial^\mu \frac{1}{\partial^\lambda\partial_\lambda} \partial_\nu A^\nu(x)].
+\end{equation}
+
+由规范场$A^\mu$产生的流$j^\mu$反过来又是规范场$A^\mu$的源, $j^\mu$确定的规范场$A^\mu$满足麦克斯韦方程:
+\begin{equation}
+  \partial_\nu F^{\mu\nu} = \partial_\nu (\partial^\mu A^\nu - \partial^\nu A^\mu) = -j^\mu.
+\end{equation}
+
+当由$j^\mu$产生的规范场$A^\mu$和由\eqref{jmu}式引入的电磁场$A^\mu$是自洽一致的时候, 我们可以得到这个系统的动力学. 利用这个条件, 我们得到一个描述规范场$A^\mu$动力学的运动方程:
+\begin{equation}
+  \partial_\nu \partial_\mu A^\nu - \partial_\nu \partial^\nu A^\mu = \frac{e^2}{\pi}[A^\mu - \partial^\mu \frac{1}{\partial^\lambda \partial_\lambda} \partial_\nu A^\nu],
+\end{equation}
+该方程成立的条件是
+\begin{equation}
+  -\square A^\mu - \frac{e^2}{\pi}A^\mu = 0.
+\end{equation}
+这里, 算符$\square$代表$\partial_\nu \partial^\nu$, 它在坐标表象中等于算符$-p^2$.
+
+用$p^2$来表示, 上式可以被写做:
+\begin{equation}
+  p^2 A^\mu - \frac{e^2}{\pi} A^\mu = 0.
+\end{equation}
+我们可以将上式与Klein-Gordon方程比较, 如果$A^\mu$是一个质量为$m$的自由玻色子场, 有
+\begin{equation}
+  p^2A^\mu - m^2 A^\mu = 0.
+\end{equation}
+可以得到, 规范场$A^\mu$满足Klein-Gordon方程就像是一个自由的玻色子, 其具有质量
+\begin{equation}
+  m = \frac{e}{\sqrt{\pi}}.
+\end{equation}
+因此, 包含无质量费米子的$\mathrm{QED}_2$等效于一个具有质量$e/\sqrt{\pi}$的自由玻色子场.
+
+
+\end{answer}
+
 \begin{problem}
   利用$1+1$维相对论理想流体力学方程, 导出QGP物质熵随时间的变化关系, 以及发生QGP到强子物质相变, 发生相变时间.
 \end{problem}
+
+\begin{answer}
+  我们用Bjorken的流体力学模型来概括在演化的流体动力学相中的等离子体动力学, 其中等离子体被理想地描述为一种相对论气体. 在初始$\tau = \tau_0$时, 等离子体达到局域热平衡, 且初始能量密度为$\varepsilon_0$, 初始温度$T(\tau_0)$正比于$\varepsilon_0^{1/4}$. 随后, 能量密度及压力随固有时以$\tau^{-4/3}$下降,而温度以$\tau^{-1/3}$下降. 
+
+下面我们来求熵密度与固有时的关系. 在不变的温度和压力下, 能量的变化与体积和熵的变化关系为
+\begin{equation}
+  \diff E = -P \diff V + T \diff S.
+\end{equation}
+这样可以写出用$\varepsilon$和$P$表示熵密度$s = \diff S / \diff V$的关系式为
+\begin{equation}
+  s \equiv \frac{\diff S}{\diff V} = \frac{\varepsilon + P}{T}.
+\end{equation}
+因而, 熵密度与固有时的关系为
+\begin{equation}
+  \frac{s(\tau)}{s(\tau_0)} = \frac{\varepsilon(\tau) + P(\tau)}{\varepsilon(\tau_0) + P(\tau_0)} \frac{T(\tau_0)}{T(\tau)} = \left( \frac{\tau_0}{\tau} \right)^{4/3} \left( \frac{\tau}{\tau_0} \right)^{1/3} = \frac{\tau_0}{\tau}.
+\end{equation}
+因此, 熵密度反比与固有时.
+
+下面我们来求从QGP物质到强子物质的相变时间. 随着QGP的演化, 它的温度按$\tau^{-1/3}$下降, 当等离子体的温度降到$T_c$时, 固有时$\tau_c$为
+\begin{equation}
+  \tau_c = \left( \frac{T(\tau_0)}{T_c} \right)^3 \tau_0.
+\end{equation}
+随后将发生从QGP到强子物质的相变.
+
+\end{answer}
 
 \begin{problem}
   试证明考虑screening效应后, $c$与$\bar{c}$在QGP环境中, 对应的Yukawa势为$V(r) = \frac{q}{4\pi} \frac{e^{-r/\lambda_D}}{r}$.
